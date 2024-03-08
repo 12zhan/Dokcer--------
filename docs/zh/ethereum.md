@@ -1,7 +1,8 @@
 # 以太坊搭建
 ## 1. 安装Geth镜像
+推荐 v1.9.12，最好使用1.11.0以下的版本
 ```shell
-Docker pull ethereum/client-go
+Docker pull ethereum/client-go:v1.9.12
 ```
 等待Geth容器镜像下载完成
 ![](/assets/3.png)
@@ -44,12 +45,12 @@ docker network inspect ethnet
 * --entrypoint
   > 指定容器入口文件。
 ```shell
-docker run -d -it --name container1 --network ethnet --ip 172.18.0.5 -v C:/D/Docker/test01:/test -p 8546:8545 -p 30304:30303  --entrypoint /bin/sh ethereum/client-go
+docker run -d -it --name container1 --network ethnet --ip 172.18.0.5 -v C:/D/Docker/test01:/test -p 8546:8545 -p 30304:30303  --entrypoint /bin/sh ethereum/client-go:v1.9.12
 ```
 
 ## 4. 进入容器
 ```shell
-docker exec -it container1 /bin/bash
+docker exec -it container1 /bin/sh
 ```
 
 ## 5. 初始化以太坊节点
@@ -81,7 +82,6 @@ docker exec -it container1 /bin/bash
 }
 ```
 提前把文件创建在挂载目录`\test`，方便使用该文件
-cd到`\test`目录下，初始化以太坊节点
 * --datadir
   > 指定以太坊节点数据存储目录。
 ```shell
@@ -124,4 +124,11 @@ geth --datadir data01 --networkid 88 --http --http.port "8545" -http.addr 172.18
 ```shell
 personal.newAccount("123456")
 ```
-### 查询节点信息
+
+## 启动私有链节点
+```shell
+# 启动私有链节点
+miner.start();
+# 停止私有链节点
+miner.stop();
+```

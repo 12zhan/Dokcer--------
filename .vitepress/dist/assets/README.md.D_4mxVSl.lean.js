@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a2 as t}from"./chunks/framework.84TDCN6B.js";const c=JSON.parse('{"title":"Docker 搭建私有链","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),h={name:"README.md"},n=t("",46),l=[n];function e(p,k,d,r,o,F){return a(),i("div",null,l)}const C=s(h,[["render",e]]);export{c as __pageData,C as default};
